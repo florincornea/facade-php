@@ -14,11 +14,13 @@ class Dog implements Animal
         return 'dog ';
     }
 
-    public function returnAnimalSaid() {
+    public function returnAnimalSaid()
+    {
         return 'woof woof';
     }
 
-    public function returnAnimalColor() {
+    public function returnAnimalColor()
+    {
         return '#3f5efb';
     }
 }
@@ -30,11 +32,13 @@ class Cat implements Animal
         return 'cat ';
     }
 
-    public function returnAnimalSaid() {
+    public function returnAnimalSaid()
+    {
         return 'meow meow';
     }
 
-    public function returnAnimalColor() {
+    public function returnAnimalColor()
+    {
         return '#fc466b';
     }
 }
@@ -64,9 +68,9 @@ class GeneratePetsFacade
                     $this->dog->returnAnimalColor()
                 ],
         ];
-        
+
         $htmlToShow = '';
-        
+
         for($i = 1; $i <= rand(10, 30); $i++) {
             $randomAnimalIndex = array_rand($animalsArray);
             $animal = $animalsArray[$randomAnimalIndex];
