@@ -14,7 +14,7 @@ class Dog
     }
 
     public function returnAnimalSaid() {
-        return 'woof';
+        return 'woof woof';
     }
 }
 
@@ -26,7 +26,7 @@ class Cat
     }
 
     public function returnAnimalSaid() {
-        return 'miau';
+        return 'meow meow';
     }
 }
 
@@ -68,4 +68,4 @@ function showPets(GeneratePetsFacade $facade)
 }
 
 $facade = new GeneratePetsFacade();
-showAnimals($facade);
+showPets($facade);
