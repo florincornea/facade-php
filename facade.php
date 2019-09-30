@@ -4,9 +4,10 @@ interface Animal
 {
     public function returnAnimal();
     public function returnAnimalSaid();
+    public function returnAnimalColor();
 }
 
-class Dog
+class Dog implements Animal
 {
     public function returnAnimal()
     {
@@ -16,9 +17,13 @@ class Dog
     public function returnAnimalSaid() {
         return 'woof woof';
     }
+
+    public function returnAnimalColor() {
+        return '#3f5efb';
+    }
 }
 
-class Cat
+class Cat implements Animal
 {
     public function returnAnimal()
     {
@@ -27,6 +32,10 @@ class Cat
 
     public function returnAnimalSaid() {
         return 'meow meow';
+    }
+
+    public function returnAnimalColor() {
+        return '#fc466b';
     }
 }
 
@@ -47,18 +56,27 @@ class GeneratePetsFacade
             0 => [
                     $this->cat->returnAnimal(),
                     $this->cat->returnAnimalSaid(),
+                    $this->cat->returnAnimalColor()
                 ],
             1 => [
                     $this->dog->returnAnimal(),
                     $this->dog->returnAnimalSaid(),
+                    $this->dog->returnAnimalColor()
                 ],
         ];
-        for($i = 1; $i <= 10; $i++) {
+        
+        $htmlToShow = '';
+        
+        for($i = 1; $i <= rand(10, 30); $i++) {
             $randomAnimalIndex = array_rand($animalsArray);
-            echo '<pre>' . $i . ' - ';
-            echo $animalsArray[$randomAnimalIndex][0];
-            echo $animalsArray[$randomAnimalIndex][1];
+            $animal = $animalsArray[$randomAnimalIndex];
+            $htmlToShow .= '<pre>' . $i . ' - ';
+            $htmlToShow .= '<label style="color: ' . $animal[2] . '">';
+                $htmlToShow .= $animal[0] . $animal[1];
+            $htmlToShow .= '</label>';
         }
+
+        echo $htmlToShow;
     }
 }
 
