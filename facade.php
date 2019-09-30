@@ -43,7 +43,7 @@ class Cat implements Animal
     }
 }
 
-class GeneratePetsFacade
+class PetsFacade
 {
     private $dog;
     private $cat;
@@ -54,7 +54,7 @@ class GeneratePetsFacade
         $this->cat = new Cat();
     }
 
-    public function returnPets()
+    public function generateRandomPets()
     {
         $animalsArray = [
             0 => [
@@ -84,10 +84,10 @@ class GeneratePetsFacade
     }
 }
 
-function showPets(GeneratePetsFacade $facade)
+function showPets(PetsFacade $facade)
 {
-    $facade->returnPets();
+    $facade->generateRandomPets();
 }
 
-$facade = new GeneratePetsFacade();
+$facade = new PetsFacade();
 showPets($facade);
